@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -43,6 +45,12 @@ public class ConnectionPizzaAndPizzaToppingsServer {
     private ConnectionPizzaAndPizzaToppingsEntity requireOne(Long id){
         return connectionPizzaAndPizzaToppingsRepository.findById(id)
                 .orElseThrow(()-> new NoSuchElementException("Resource not found " + id));
+    }
+    public List<ConnectionPizzaAndPizzaToppingsEntity> getAllConnectionByOrderID(Long orderId){
+        ConnectionPizzaAndPizzaToppingsEntity list;
+        list=connectionPizzaAndPizzaToppingsRepository.getByIdOrder(orderId);
+        return (List<ConnectionPizzaAndPizzaToppingsEntity>) list;
+
     }
 
 }
