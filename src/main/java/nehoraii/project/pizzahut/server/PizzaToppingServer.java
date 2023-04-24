@@ -1,2 +1,4 @@
-package nehoraii.project.pizzahut.server;public class PizzaToppingServer {
+package nehoraii.project.pizzahut.server;
+
+public class PizzaToppingServer {
 }

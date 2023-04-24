@@ -20,10 +20,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "pizza")
 @NamedQueries({
-    @NamedQuery(name = "Pizza.findAll", query = "SELECT p FROM Pizza p"),
-    @NamedQuery(name = "Pizza.findById", query = "SELECT p FROM Pizza p WHERE p.id = :id"),
-    @NamedQuery(name = "Pizza.findByIdInformationAboutItems", query = "SELECT p FROM Pizza p WHERE p.idInformationAboutItems = :idInformationAboutItems")})
-public class Pizza implements Serializable {
+    @NamedQuery(name = "Pizza.findAll", query = "SELECT p FROM PizzaEntity p"),
+    @NamedQuery(name = "Pizza.findById", query = "SELECT p FROM PizzaEntity p WHERE p.id = :id"),
+    @NamedQuery(name = "Pizza.findByIdInformationAboutItems", query = "SELECT p FROM PizzaEntity p WHERE p.idInformationAboutItems = :idInformationAboutItems")})
+public class PizzaEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -34,14 +34,14 @@ public class Pizza implements Serializable {
     @Column(name = "id_information_about_items")
     private long idInformationAboutItems;
 
-    public Pizza() {
+    public PizzaEntity() {
     }
 
-    public Pizza(Long id) {
+    public PizzaEntity(Long id) {
         this.id = id;
     }
 
-    public Pizza(Long id, long idInformationAboutItems) {
+    public PizzaEntity(Long id, long idInformationAboutItems) {
         this.id = id;
         this.idInformationAboutItems = idInformationAboutItems;
     }
@@ -72,10 +72,10 @@ public class Pizza implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pizza)) {
+        if (!(object instanceof PizzaEntity)) {
             return false;
         }
-        Pizza other = (Pizza) object;
+        PizzaEntity other = (PizzaEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

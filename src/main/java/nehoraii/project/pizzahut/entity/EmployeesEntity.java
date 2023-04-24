@@ -6,7 +6,7 @@ package nehoraii.project.pizzahut.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import jakarta.persistence.
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;;
 import jakarta.persistence.Entity;
@@ -26,17 +26,17 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "employees")
 @NamedQueries({
-    @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM Employees e"),
-    @NamedQuery(name = "Employees.findById", query = "SELECT e FROM Employees e WHERE e.id = :id"),
-    @NamedQuery(name = "Employees.findByIdOfEmployee", query = "SELECT e FROM Employees e WHERE e.idOfEmployee = :idOfEmployee"),
-    @NamedQuery(name = "Employees.findByName", query = "SELECT e FROM Employees e WHERE e.name = :name"),
-    @NamedQuery(name = "Employees.findBySecName", query = "SELECT e FROM Employees e WHERE e.secName = :secName"),
-    @NamedQuery(name = "Employees.findByPhone", query = "SELECT e FROM Employees e WHERE e.phone = :phone"),
-    @NamedQuery(name = "Employees.findByPayForHours", query = "SELECT e FROM Employees e WHERE e.payForHours = :payForHours"),
-    @NamedQuery(name = "Employees.findByBankAccountNumber", query = "SELECT e FROM Employees e WHERE e.bankAccountNumber = :bankAccountNumber"),
-    @NamedQuery(name = "Employees.findByDateOfBirth", query = "SELECT e FROM Employees e WHERE e.dateOfBirth = :dateOfBirth"),
-    @NamedQuery(name = "Employees.findByCodeEmployee", query = "SELECT e FROM Employees e WHERE e.codeEmployee = :codeEmployee")})
-public class Employees implements Serializable {
+    @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM EmployeesEntity e"),
+    @NamedQuery(name = "Employees.findById", query = "SELECT e FROM EmployeesEntity e WHERE e.id = :id"),
+    @NamedQuery(name = "Employees.findByIdOfEmployee", query = "SELECT e FROM EmployeesEntity e WHERE e.idOfEmployee = :idOfEmployee"),
+    @NamedQuery(name = "Employees.findByName", query = "SELECT e FROM EmployeesEntity e WHERE e.name = :name"),
+    @NamedQuery(name = "Employees.findBySecName", query = "SELECT e FROM EmployeesEntity e WHERE e.secName = :secName"),
+    @NamedQuery(name = "Employees.findByPhone", query = "SELECT e FROM EmployeesEntity e WHERE e.phone = :phone"),
+    @NamedQuery(name = "Employees.findByPayForHours", query = "SELECT e FROM EmployeesEntity e WHERE e.payForHours = :payForHours"),
+    @NamedQuery(name = "Employees.findByBankAccountNumber", query = "SELECT e FROM EmployeesEntity e WHERE e.bankAccountNumber = :bankAccountNumber"),
+    @NamedQuery(name = "Employees.findByDateOfBirth", query = "SELECT e FROM EmployeesEntity e WHERE e.dateOfBirth = :dateOfBirth"),
+    @NamedQuery(name = "Employees.findByCodeEmployee", query = "SELECT e FROM EmployeesEntity e WHERE e.codeEmployee = :codeEmployee")})
+public class EmployeesEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -70,14 +70,14 @@ public class Employees implements Serializable {
     @Column(name = "code_employee")
     private String codeEmployee;
 
-    public Employees() {
+    public EmployeesEntity() {
     }
 
-    public Employees(Long id) {
+    public EmployeesEntity(Long id) {
         this.id = id;
     }
 
-    public Employees(Long id, String idOfEmployee, String name, String secName, String phone, double payForHours, String bankAccountNumber, Date dateOfBirth, String codeEmployee) {
+    public EmployeesEntity(Long id, String idOfEmployee, String name, String secName, String phone, double payForHours, String bankAccountNumber, Date dateOfBirth, String codeEmployee) {
         this.id = id;
         this.idOfEmployee = idOfEmployee;
         this.name = name;
@@ -171,10 +171,10 @@ public class Employees implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Employees)) {
+        if (!(object instanceof EmployeesEntity)) {
             return false;
         }
-        Employees other = (Employees) object;
+        EmployeesEntity other = (EmployeesEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

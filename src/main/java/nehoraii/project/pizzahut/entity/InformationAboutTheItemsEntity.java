@@ -22,16 +22,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Information_about_the_items")
 @NamedQueries({
-    @NamedQuery(name = "Informationabouttheitems.findAll", query = "SELECT i FROM InformationAboutTheItems i"),
-    @NamedQuery(name = "Informationabouttheitems.findById", query = "SELECT i FROM InformationAboutTheItems i WHERE i.id = :id"),
-    @NamedQuery(name = "Informationabouttheitems.findByCountDoughReadyToWork", query = "SELECT i FROM InformationAboutTheItems i WHERE i.countDoughReadyToWork = :countDoughReadyToWork"),
-    @NamedQuery(name = "Informationabouttheitems.findByCodeOfDough", query = "SELECT i FROM InformationAboutTheItems i WHERE i.codeOfDough = :codeOfDough"),
-    @NamedQuery(name = "Informationabouttheitems.findByAmountOfCheeseInGram", query = "SELECT i FROM InformationAboutTheItems i WHERE i.amountOfCheeseInGram = :amountOfCheeseInGram"),
-    @NamedQuery(name = "Informationabouttheitems.findByAmountOfSauceInMl", query = "SELECT i FROM InformationAboutTheItems i WHERE i.amountOfSauceInMl = :amountOfSauceInMl"),
-    @NamedQuery(name = "Informationabouttheitems.findByVegan", query = "SELECT i FROM InformationAboutTheItems i WHERE i.vegan = :vegan"),
-    @NamedQuery(name = "Informationabouttheitems.findByCalories", query = "SELECT i FROM InformationAboutTheItems i WHERE i.calories = :calories"),
-    @NamedQuery(name = "Informationabouttheitems.findByPrice", query = "SELECT i FROM InformationAboutTheItems i WHERE i.price = :price")})
-public class InformationAboutTheItems implements Serializable {
+    @NamedQuery(name = "Informationabouttheitems.findAll", query = "SELECT i FROM InformationAboutTheItemsEntity i"),
+    @NamedQuery(name = "Informationabouttheitems.findById", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.id = :id"),
+    @NamedQuery(name = "Informationabouttheitems.findByCountDoughReadyToWork", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.countDoughReadyToWork = :countDoughReadyToWork"),
+    @NamedQuery(name = "Informationabouttheitems.findByCodeOfDough", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.codeOfDough = :codeOfDough"),
+    @NamedQuery(name = "Informationabouttheitems.findByAmountOfCheeseInGram", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.amountOfCheeseInGram = :amountOfCheeseInGram"),
+    @NamedQuery(name = "Informationabouttheitems.findByAmountOfSauceInMl", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.amountOfSauceInMl = :amountOfSauceInMl"),
+    @NamedQuery(name = "Informationabouttheitems.findByVegan", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.vegan = :vegan"),
+    @NamedQuery(name = "Informationabouttheitems.findByCalories", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.calories = :calories"),
+    @NamedQuery(name = "Informationabouttheitems.findByPrice", query = "SELECT i FROM InformationAboutTheItemsEntity i WHERE i.price = :price")})
+public class InformationAboutTheItemsEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -61,14 +61,14 @@ public class InformationAboutTheItems implements Serializable {
     @Column(name = "price")
     private double price;
 
-    public InformationAboutTheItems() {
+    public InformationAboutTheItemsEntity() {
     }
 
-    public InformationAboutTheItems(Long id) {
+    public InformationAboutTheItemsEntity(Long id) {
         this.id = id;
     }
 
-    public InformationAboutTheItems(Long id, int countDoughReadyToWork, String codeOfDough, double amountOfCheeseInGram, double amountOfSauceInMl, boolean vegan, double calories, double price) {
+    public InformationAboutTheItemsEntity(Long id, int countDoughReadyToWork, String codeOfDough, double amountOfCheeseInGram, double amountOfSauceInMl, boolean vegan, double calories, double price) {
         this.id = id;
         this.countDoughReadyToWork = countDoughReadyToWork;
         this.codeOfDough = codeOfDough;
@@ -153,10 +153,10 @@ public class InformationAboutTheItems implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof InformationAboutTheItems)) {
+        if (!(object instanceof InformationAboutTheItemsEntity)) {
             return false;
         }
-        InformationAboutTheItems other = (InformationAboutTheItems) object;
+        InformationAboutTheItemsEntity other = (InformationAboutTheItemsEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

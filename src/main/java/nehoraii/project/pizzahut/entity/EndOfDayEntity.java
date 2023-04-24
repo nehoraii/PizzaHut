@@ -25,34 +25,34 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "end_of_day")
 @NamedQueries({
-    @NamedQuery(name = "EndOfDay.findAll", query = "SELECT e FROM EndOfDay e"),
-    @NamedQuery(name = "EndOfDay.findById", query = "SELECT e FROM EndOfDay e WHERE e.id = :id"),
-    @NamedQuery(name = "EndOfDay.findByDate", query = "SELECT e FROM EndOfDay e WHERE e.date = :date"),
-    @NamedQuery(name = "EndOfDay.findByPayInCraditCard", query = "SELECT e FROM EndOfDay e WHERE e.payInCraditCard = :payInCraditCard"),
-    @NamedQuery(name = "EndOfDay.findByPayInCash", query = "SELECT e FROM EndOfDay e WHERE e.payInCash = :payInCash"),
-    @NamedQuery(name = "EndOfDay.findByPayInOtherWay", query = "SELECT e FROM EndOfDay e WHERE e.payInOtherWay = :payInOtherWay"),
-    @NamedQuery(name = "EndOfDay.findByLpan", query = "SELECT e FROM EndOfDay e WHERE e.lpan = :lpan"),
-    @NamedQuery(name = "EndOfDay.findByLclassic", query = "SELECT e FROM EndOfDay e WHERE e.lclassic = :lclassic"),
-    @NamedQuery(name = "EndOfDay.findBySpan", query = "SELECT e FROM EndOfDay e WHERE e.span = :span"),
-    @NamedQuery(name = "EndOfDay.findBySclassic", query = "SELECT e FROM EndOfDay e WHERE e.sclassic = :sclassic"),
-    @NamedQuery(name = "EndOfDay.findByXlpan", query = "SELECT e FROM EndOfDay e WHERE e.xlpan = :xlpan"),
-    @NamedQuery(name = "EndOfDay.findByXlclassic", query = "SELECT e FROM EndOfDay e WHERE e.xlclassic = :xlclassic"),
-    @NamedQuery(name = "EndOfDay.findBySpecialPizza", query = "SELECT e FROM EndOfDay e WHERE e.specialPizza = :specialPizza"),
-    @NamedQuery(name = "EndOfDay.findByCountryPanPizza", query = "SELECT e FROM EndOfDay e WHERE e.countryPanPizza = :countryPanPizza"),
-    @NamedQuery(name = "EndOfDay.findByCountryClassicPizza", query = "SELECT e FROM EndOfDay e WHERE e.countryClassicPizza = :countryClassicPizza"),
-    @NamedQuery(name = "EndOfDay.findByBigSalad", query = "SELECT e FROM EndOfDay e WHERE e.bigSalad = :bigSalad"),
-    @NamedQuery(name = "EndOfDay.findByPersonalSalad", query = "SELECT e FROM EndOfDay e WHERE e.personalSalad = :personalSalad"),
-    @NamedQuery(name = "EndOfDay.findByWithOutGloten", query = "SELECT e FROM EndOfDay e WHERE e.withOutGloten = :withOutGloten"),
-    @NamedQuery(name = "EndOfDay.findByTheHighestPizzaTopping1", query = "SELECT e FROM EndOfDay e WHERE e.theHighestPizzaTopping1 = :theHighestPizzaTopping1"),
-    @NamedQuery(name = "EndOfDay.findByTheHighestPizzaTopping2", query = "SELECT e FROM EndOfDay e WHERE e.theHighestPizzaTopping2 = :theHighestPizzaTopping2"),
-    @NamedQuery(name = "EndOfDay.findByTheHighestPizzaTopping3", query = "SELECT e FROM EndOfDay e WHERE e.theHighestPizzaTopping3 = :theHighestPizzaTopping3"),
-    @NamedQuery(name = "EndOfDay.findByQuiche", query = "SELECT e FROM EndOfDay e WHERE e.quiche = :quiche"),
-    @NamedQuery(name = "EndOfDay.findByCornNuggets", query = "SELECT e FROM EndOfDay e WHERE e.cornNuggets = :cornNuggets"),
-    @NamedQuery(name = "EndOfDay.findByNionRings", query = "SELECT e FROM EndOfDay e WHERE e.nionRings = :nionRings"),
-    @NamedQuery(name = "EndOfDay.findByPasta", query = "SELECT e FROM EndOfDay e WHERE e.pasta = :pasta"),
-    @NamedQuery(name = "EndOfDay.findByGrossAmount", query = "SELECT e FROM EndOfDay e WHERE e.grossAmount = :grossAmount"),
-    @NamedQuery(name = "EndOfDay.findByNetAmount", query = "SELECT e FROM EndOfDay e WHERE e.netAmount = :netAmount")})
-public class EndOfDay implements Serializable {
+    @NamedQuery(name = "EndOfDay.findAll", query = "SELECT e FROM EndOfDayEntity e"),
+    @NamedQuery(name = "EndOfDay.findById", query = "SELECT e FROM EndOfDayEntity e WHERE e.id = :id"),
+    @NamedQuery(name = "EndOfDay.findByDate", query = "SELECT e FROM EndOfDayEntity e WHERE e.date = :date"),
+    @NamedQuery(name = "EndOfDay.findByPayInCraditCard", query = "SELECT e FROM EndOfDayEntity e WHERE e.payInCraditCard = :payInCraditCard"),
+    @NamedQuery(name = "EndOfDay.findByPayInCash", query = "SELECT e FROM EndOfDayEntity e WHERE e.payInCash = :payInCash"),
+    @NamedQuery(name = "EndOfDay.findByPayInOtherWay", query = "SELECT e FROM EndOfDayEntity e WHERE e.payInOtherWay = :payInOtherWay"),
+    @NamedQuery(name = "EndOfDay.findByLpan", query = "SELECT e FROM EndOfDayEntity e WHERE e.lpan = :lpan"),
+    @NamedQuery(name = "EndOfDay.findByLclassic", query = "SELECT e FROM EndOfDayEntity e WHERE e.lclassic = :lclassic"),
+    @NamedQuery(name = "EndOfDay.findBySpan", query = "SELECT e FROM EndOfDayEntity e WHERE e.span = :span"),
+    @NamedQuery(name = "EndOfDay.findBySclassic", query = "SELECT e FROM EndOfDayEntity e WHERE e.sclassic = :sclassic"),
+    @NamedQuery(name = "EndOfDay.findByXlpan", query = "SELECT e FROM EndOfDayEntity e WHERE e.xlpan = :xlpan"),
+    @NamedQuery(name = "EndOfDay.findByXlclassic", query = "SELECT e FROM EndOfDayEntity e WHERE e.xlclassic = :xlclassic"),
+    @NamedQuery(name = "EndOfDay.findBySpecialPizza", query = "SELECT e FROM EndOfDayEntity e WHERE e.specialPizza = :specialPizza"),
+    @NamedQuery(name = "EndOfDay.findByCountryPanPizza", query = "SELECT e FROM EndOfDayEntity e WHERE e.countryPanPizza = :countryPanPizza"),
+    @NamedQuery(name = "EndOfDay.findByCountryClassicPizza", query = "SELECT e FROM EndOfDayEntity e WHERE e.countryClassicPizza = :countryClassicPizza"),
+    @NamedQuery(name = "EndOfDay.findByBigSalad", query = "SELECT e FROM EndOfDayEntity e WHERE e.bigSalad = :bigSalad"),
+    @NamedQuery(name = "EndOfDay.findByPersonalSalad", query = "SELECT e FROM EndOfDayEntity e WHERE e.personalSalad = :personalSalad"),
+    @NamedQuery(name = "EndOfDay.findByWithOutGloten", query = "SELECT e FROM EndOfDayEntity e WHERE e.withOutGloten = :withOutGloten"),
+    @NamedQuery(name = "EndOfDay.findByTheHighestPizzaTopping1", query = "SELECT e FROM EndOfDayEntity e WHERE e.theHighestPizzaTopping1 = :theHighestPizzaTopping1"),
+    @NamedQuery(name = "EndOfDay.findByTheHighestPizzaTopping2", query = "SELECT e FROM EndOfDayEntity e WHERE e.theHighestPizzaTopping2 = :theHighestPizzaTopping2"),
+    @NamedQuery(name = "EndOfDay.findByTheHighestPizzaTopping3", query = "SELECT e FROM EndOfDayEntity e WHERE e.theHighestPizzaTopping3 = :theHighestPizzaTopping3"),
+    @NamedQuery(name = "EndOfDay.findByQuiche", query = "SELECT e FROM EndOfDayEntity e WHERE e.quiche = :quiche"),
+    @NamedQuery(name = "EndOfDay.findByCornNuggets", query = "SELECT e FROM EndOfDayEntity e WHERE e.cornNuggets = :cornNuggets"),
+    @NamedQuery(name = "EndOfDay.findByNionRings", query = "SELECT e FROM EndOfDayEntity e WHERE e.nionRings = :nionRings"),
+    @NamedQuery(name = "EndOfDay.findByPasta", query = "SELECT e FROM EndOfDayEntity e WHERE e.pasta = :pasta"),
+    @NamedQuery(name = "EndOfDay.findByGrossAmount", query = "SELECT e FROM EndOfDayEntity e WHERE e.grossAmount = :grossAmount"),
+    @NamedQuery(name = "EndOfDay.findByNetAmount", query = "SELECT e FROM EndOfDayEntity e WHERE e.netAmount = :netAmount")})
+public class EndOfDayEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -137,14 +137,14 @@ public class EndOfDay implements Serializable {
     @Column(name = "net_amount")
     private double netAmount;
 
-    public EndOfDay() {
+    public EndOfDayEntity() {
     }
 
-    public EndOfDay(Long id) {
+    public EndOfDayEntity(Long id) {
         this.id = id;
     }
 
-    public EndOfDay(Long id, Date date, double payInCraditCard, double payInCash, double payInOtherWay, int lpan, int lclassic, int span, int sclassic, int xlpan, int xlclassic, int specialPizza, int countryPanPizza, int countryClassicPizza, int bigSalad, int personalSalad, int withOutGloten, String theHighestPizzaTopping1, String theHighestPizzaTopping2, String theHighestPizzaTopping3, int quiche, int cornNuggets, int nionRings, int pasta, double grossAmount, double netAmount) {
+    public EndOfDayEntity(Long id, Date date, double payInCraditCard, double payInCash, double payInOtherWay, int lpan, int lclassic, int span, int sclassic, int xlpan, int xlclassic, int specialPizza, int countryPanPizza, int countryClassicPizza, int bigSalad, int personalSalad, int withOutGloten, String theHighestPizzaTopping1, String theHighestPizzaTopping2, String theHighestPizzaTopping3, int quiche, int cornNuggets, int nionRings, int pasta, double grossAmount, double netAmount) {
         this.id = id;
         this.date = date;
         this.payInCraditCard = payInCraditCard;
@@ -391,10 +391,10 @@ public class EndOfDay implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EndOfDay)) {
+        if (!(object instanceof EndOfDayEntity)) {
             return false;
         }
-        EndOfDay other = (EndOfDay) object;
+        EndOfDayEntity other = (EndOfDayEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

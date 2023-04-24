@@ -1,2 +1,4 @@
-package nehoraii.project.pizzahut.vo;public class PizzaToppingVo {
+package nehoraii.project.pizzahut.vo;
+
+public class PizzaToppingVo {
 }

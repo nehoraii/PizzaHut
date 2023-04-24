@@ -1,2 +1,4 @@
-package nehoraii.project.pizzahut.server;public class EndOfDayServer {
+package nehoraii.project.pizzahut.server;
+
+public class EndOfDayServer {
 }

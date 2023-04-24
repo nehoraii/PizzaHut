@@ -22,14 +22,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "infornation_about_customers")
 @NamedQueries({
-    @NamedQuery(name = "InfornationAboutCustomers.findAll", query = "SELECT i FROM InfornationAboutCustomers i"),
-    @NamedQuery(name = "InfornationAboutCustomers.findById", query = "SELECT i FROM InfornationAboutCustomers i WHERE i.id = :id"),
-    @NamedQuery(name = "InfornationAboutCustomers.findByNameOfCustomer", query = "SELECT i FROM InfornationAboutCustomers i WHERE i.nameOfCustomer = :nameOfCustomer"),
-    @NamedQuery(name = "InfornationAboutCustomers.findBySecondNameCustomers", query = "SELECT i FROM InfornationAboutCustomers i WHERE i.secondNameCustomers = :secondNameCustomers"),
-    @NamedQuery(name = "InfornationAboutCustomers.findByPhoneNumberCustomer", query = "SELECT i FROM InfornationAboutCustomers i WHERE i.phoneNumberCustomer = :phoneNumberCustomer"),
-    @NamedQuery(name = "InfornationAboutCustomers.findByAvargeOrdersMoney", query = "SELECT i FROM InfornationAboutCustomers i WHERE i.avargeOrdersMoney = :avargeOrdersMoney"),
-    @NamedQuery(name = "InfornationAboutCustomers.findByMaxOrderMoney", query = "SELECT i FROM InfornationAboutCustomers i WHERE i.maxOrderMoney = :maxOrderMoney")})
-public class InfornationAboutCustomers implements Serializable {
+    @NamedQuery(name = "InfornationAboutCustomers.findAll", query = "SELECT i FROM InformationAboutCustomersEntity i"),
+    @NamedQuery(name = "InfornationAboutCustomers.findById", query = "SELECT i FROM InformationAboutCustomersEntity i WHERE i.id = :id"),
+    @NamedQuery(name = "InfornationAboutCustomers.findByNameOfCustomer", query = "SELECT i FROM InformationAboutCustomersEntity i WHERE i.nameOfCustomer = :nameOfCustomer"),
+    @NamedQuery(name = "InfornationAboutCustomers.findBySecondNameCustomers", query = "SELECT i FROM InformationAboutCustomersEntity i WHERE i.secondNameCustomers = :secondNameCustomers"),
+    @NamedQuery(name = "InfornationAboutCustomers.findByPhoneNumberCustomer", query = "SELECT i FROM InformationAboutCustomersEntity i WHERE i.phoneNumberCustomer = :phoneNumberCustomer"),
+    @NamedQuery(name = "InfornationAboutCustomers.findByAvargeOrdersMoney", query = "SELECT i FROM InformationAboutCustomersEntity i WHERE i.avargeOrdersMoney = :avargeOrdersMoney"),
+    @NamedQuery(name = "InfornationAboutCustomers.findByMaxOrderMoney", query = "SELECT i FROM InformationAboutCustomersEntity i WHERE i.maxOrderMoney = :maxOrderMoney")})
+public class InformationAboutCustomersEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,14 +53,14 @@ public class InfornationAboutCustomers implements Serializable {
     @Column(name = "max_order_money")
     private double maxOrderMoney;
 
-    public InfornationAboutCustomers() {
+    public InformationAboutCustomersEntity() {
     }
 
-    public InfornationAboutCustomers(Long id) {
+    public InformationAboutCustomersEntity(Long id) {
         this.id = id;
     }
 
-    public InfornationAboutCustomers(Long id, String nameOfCustomer, String secondNameCustomers, String phoneNumberCustomer, double avargeOrdersMoney, double maxOrderMoney) {
+    public InformationAboutCustomersEntity(Long id, String nameOfCustomer, String secondNameCustomers, String phoneNumberCustomer, double avargeOrdersMoney, double maxOrderMoney) {
         this.id = id;
         this.nameOfCustomer = nameOfCustomer;
         this.secondNameCustomers = secondNameCustomers;
@@ -127,10 +127,10 @@ public class InfornationAboutCustomers implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof InfornationAboutCustomers)) {
+        if (!(object instanceof InformationAboutCustomersEntity)) {
             return false;
         }
-        InfornationAboutCustomers other = (InfornationAboutCustomers) object;
+        InformationAboutCustomersEntity other = (InformationAboutCustomersEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

@@ -1,2 +1,4 @@
-package nehoraii.project.pizzahut.server;public class InformationAboutTheDoughServer {
+package nehoraii.project.pizzahut.server;
+
+public class InformationAboutTheDoughServer {
 }

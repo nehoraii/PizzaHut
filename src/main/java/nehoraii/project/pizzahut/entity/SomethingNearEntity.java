@@ -20,13 +20,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "something_near")
 @NamedQueries({
-    @NamedQuery(name = "SomethingNear.findAll", query = "SELECT s FROM SomethingNear s"),
-    @NamedQuery(name = "SomethingNear.findById", query = "SELECT s FROM SomethingNear s WHERE s.id = :id"),
-    @NamedQuery(name = "SomethingNear.findByIdInformationAboutOrder", query = "SELECT s FROM SomethingNear s WHERE s.idInformationAboutOrder = :idInformationAboutOrder"),
-    @NamedQuery(name = "SomethingNear.findByNameProduct", query = "SELECT s FROM SomethingNear s WHERE s.nameProduct = :nameProduct"),
-    @NamedQuery(name = "SomethingNear.findByPrice", query = "SELECT s FROM SomethingNear s WHERE s.price = :price"),
-    @NamedQuery(name = "SomethingNear.findByCalories", query = "SELECT s FROM SomethingNear s WHERE s.calories = :calories")})
-public class SomethingNear implements Serializable {
+    @NamedQuery(name = "SomethingNear.findAll", query = "SELECT s FROM SomethingNearEntity s"),
+    @NamedQuery(name = "SomethingNear.findById", query = "SELECT s FROM SomethingNearEntity s WHERE s.id = :id"),
+    @NamedQuery(name = "SomethingNear.findByIdInformationAboutOrder", query = "SELECT s FROM SomethingNearEntity s WHERE s.idInformationAboutOrder = :idInformationAboutOrder"),
+    @NamedQuery(name = "SomethingNear.findByNameProduct", query = "SELECT s FROM SomethingNearEntity s WHERE s.nameProduct = :nameProduct"),
+    @NamedQuery(name = "SomethingNear.findByPrice", query = "SELECT s FROM SomethingNearEntity s WHERE s.price = :price"),
+    @NamedQuery(name = "SomethingNear.findByCalories", query = "SELECT s FROM SomethingNearEntity s WHERE s.calories = :calories")})
+public class SomethingNearEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -46,14 +46,14 @@ public class SomethingNear implements Serializable {
     @Column(name = "calories")
     private double calories;
 
-    public SomethingNear() {
+    public SomethingNearEntity() {
     }
 
-    public SomethingNear(Long idInformationAboutOrder) {
+    public SomethingNearEntity(Long idInformationAboutOrder) {
         this.idInformationAboutOrder = idInformationAboutOrder;
     }
 
-    public SomethingNear(Long idInformationAboutOrder, long id, String nameProduct, double price, double calories) {
+    public SomethingNearEntity(Long idInformationAboutOrder, long id, String nameProduct, double price, double calories) {
         this.idInformationAboutOrder = idInformationAboutOrder;
         this.id = id;
         this.nameProduct = nameProduct;
@@ -111,10 +111,10 @@ public class SomethingNear implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SomethingNear)) {
+        if (!(object instanceof SomethingNearEntity)) {
             return false;
         }
-        SomethingNear other = (SomethingNear) object;
+        SomethingNearEntity other = (SomethingNearEntity) object;
         if ((this.idInformationAboutOrder == null && other.idInformationAboutOrder != null) || (this.idInformationAboutOrder != null && !this.idInformationAboutOrder.equals(other.idInformationAboutOrder))) {
             return false;
         }

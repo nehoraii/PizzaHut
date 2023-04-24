@@ -25,13 +25,13 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "end_of_month")
 @NamedQueries({
-    @NamedQuery(name = "EndOfMonth.findAll", query = "SELECT e FROM EndOfMonth e"),
-    @NamedQuery(name = "EndOfMonth.findById", query = "SELECT e FROM EndOfMonth e WHERE e.id = :id"),
-    @NamedQuery(name = "EndOfMonth.findByDate", query = "SELECT e FROM EndOfMonth e WHERE e.date = :date"),
-    @NamedQuery(name = "EndOfMonth.findByGrossAmount", query = "SELECT e FROM EndOfMonth e WHERE e.grossAmount = :grossAmount"),
-    @NamedQuery(name = "EndOfMonth.findByNetAmount", query = "SELECT e FROM EndOfMonth e WHERE e.netAmount = :netAmount"),
-    @NamedQuery(name = "EndOfMonth.findByCountOfOrders", query = "SELECT e FROM EndOfMonth e WHERE e.countOfOrders = :countOfOrders")})
-public class EndOfMonth implements Serializable {
+    @NamedQuery(name = "EndOfMonth.findAll", query = "SELECT e FROM EndOfMonthEntity e"),
+    @NamedQuery(name = "EndOfMonth.findById", query = "SELECT e FROM EndOfMonthEntity e WHERE e.id = :id"),
+    @NamedQuery(name = "EndOfMonth.findByDate", query = "SELECT e FROM EndOfMonthEntity e WHERE e.date = :date"),
+    @NamedQuery(name = "EndOfMonth.findByGrossAmount", query = "SELECT e FROM EndOfMonthEntity e WHERE e.grossAmount = :grossAmount"),
+    @NamedQuery(name = "EndOfMonth.findByNetAmount", query = "SELECT e FROM EndOfMonthEntity e WHERE e.netAmount = :netAmount"),
+    @NamedQuery(name = "EndOfMonth.findByCountOfOrders", query = "SELECT e FROM EndOfMonthEntity e WHERE e.countOfOrders = :countOfOrders")})
+public class EndOfMonthEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,14 +53,14 @@ public class EndOfMonth implements Serializable {
     @Column(name = "count_of_orders")
     private int countOfOrders;
 
-    public EndOfMonth() {
+    public EndOfMonthEntity() {
     }
 
-    public EndOfMonth(Long id) {
+    public EndOfMonthEntity(Long id) {
         this.id = id;
     }
 
-    public EndOfMonth(Long id, Date date, double grossAmount, double netAmount, int countOfOrders) {
+    public EndOfMonthEntity(Long id, Date date, double grossAmount, double netAmount, int countOfOrders) {
         this.id = id;
         this.date = date;
         this.grossAmount = grossAmount;
@@ -118,10 +118,10 @@ public class EndOfMonth implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EndOfMonth)) {
+        if (!(object instanceof EndOfMonthEntity)) {
             return false;
         }
-        EndOfMonth other = (EndOfMonth) object;
+        EndOfMonthEntity other = (EndOfMonthEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

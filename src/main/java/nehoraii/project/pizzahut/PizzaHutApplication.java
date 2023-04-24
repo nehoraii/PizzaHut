@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PizzaHutApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PizzaHutApplication.class, args);
-	}
+    public static void main(String[] args) {
+
+        SpringApplication.run(PizzaHutApplication.class, args);
+    }
 
 }

@@ -1,2 +1,4 @@
-package nehoraii.project.pizzahut.server;public class HoursTableServer {
+package nehoraii.project.pizzahut.server;
+
+public class HoursTableServer {
 }

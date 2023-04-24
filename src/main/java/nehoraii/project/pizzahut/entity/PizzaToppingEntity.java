@@ -22,10 +22,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "pizza_topping")
 @NamedQueries({
-    @NamedQuery(name = "PizzaTopping.findAll", query = "SELECT p FROM PizzaTopping p"),
-    @NamedQuery(name = "PizzaTopping.findById", query = "SELECT p FROM PizzaTopping p WHERE p.id = :id"),
-    @NamedQuery(name = "PizzaTopping.findByIdInformationAboutPizzaTopping", query = "SELECT p FROM PizzaTopping p WHERE p.idInformationAboutPizzaTopping = :idInformationAboutPizzaTopping")})
-public class PizzaTopping implements Serializable {
+    @NamedQuery(name = "PizzaTopping.findAll", query = "SELECT p FROM PizzaToppingEntity p"),
+    @NamedQuery(name = "PizzaTopping.findById", query = "SELECT p FROM PizzaToppingEntity p WHERE p.id = :id"),
+    @NamedQuery(name = "PizzaTopping.findByIdInformationAboutPizzaTopping", query = "SELECT p FROM PizzaToppingEntity p WHERE p.idInformationAboutPizzaTopping = :idInformationAboutPizzaTopping")})
+public class PizzaToppingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,14 +37,14 @@ public class PizzaTopping implements Serializable {
     @Column(name = "id_information_about_pizza_topping")
     private long idInformationAboutPizzaTopping;
 
-    public PizzaTopping() {
+    public PizzaToppingEntity() {
     }
 
-    public PizzaTopping(Long id) {
+    public PizzaToppingEntity(Long id) {
         this.id = id;
     }
 
-    public PizzaTopping(Long id, long idInformationAboutPizzaTopping) {
+    public PizzaToppingEntity(Long id, long idInformationAboutPizzaTopping) {
         this.id = id;
         this.idInformationAboutPizzaTopping = idInformationAboutPizzaTopping;
     }
@@ -75,10 +75,10 @@ public class PizzaTopping implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PizzaTopping)) {
+        if (!(object instanceof PizzaToppingEntity)) {
             return false;
         }
-        PizzaTopping other = (PizzaTopping) object;
+        PizzaToppingEntity other = (PizzaToppingEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

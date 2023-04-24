@@ -23,18 +23,18 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "orders")
 @NamedQueries({
-    @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o"),
-    @NamedQuery(name = "Orders.findById", query = "SELECT o FROM Orders o WHERE o.id = :id"),
-    @NamedQuery(name = "Orders.findByIdCustomersTable", query = "SELECT o FROM Orders o WHERE o.idCustomersTable = :idCustomersTable"),
-    @NamedQuery(name = "Orders.findByTypePay", query = "SELECT o FROM Orders o WHERE o.typePay = :typePay"),
-    @NamedQuery(name = "Orders.findByOrderAmoust", query = "SELECT o FROM Orders o WHERE o.orderAmoust = :orderAmoust"),
-    @NamedQuery(name = "Orders.findByDate", query = "SELECT o FROM Orders o WHERE o.date = :date"),
-    @NamedQuery(name = "Orders.findByDesiredHour", query = "SELECT o FROM Orders o WHERE o.desiredHour = :desiredHour"),
-    @NamedQuery(name = "Orders.findByActualHour", query = "SELECT o FROM Orders o WHERE o.actualHour = :actualHour"),
-    @NamedQuery(name = "Orders.findByNameEmployee", query = "SELECT o FROM Orders o WHERE o.nameEmployee = :nameEmployee"),
-    @NamedQuery(name = "Orders.findBySatisfaction", query = "SELECT o FROM Orders o WHERE o.satisfaction = :satisfaction"),
-    @NamedQuery(name = "Orders.findByRemarks", query = "SELECT o FROM Orders o WHERE o.remarks = :remarks")})
-public class Orders implements Serializable {
+    @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM OrdersEntity o"),
+    @NamedQuery(name = "Orders.findById", query = "SELECT o FROM OrdersEntity o WHERE o.id = :id"),
+    @NamedQuery(name = "Orders.findByIdCustomersTable", query = "SELECT o FROM OrdersEntity o WHERE o.idCustomersTable = :idCustomersTable"),
+    @NamedQuery(name = "Orders.findByTypePay", query = "SELECT o FROM OrdersEntity o WHERE o.typePay = :typePay"),
+    @NamedQuery(name = "Orders.findByOrderAmoust", query = "SELECT o FROM OrdersEntity o WHERE o.orderAmoust = :orderAmoust"),
+    @NamedQuery(name = "Orders.findByDate", query = "SELECT o FROM OrdersEntity o WHERE o.date = :date"),
+    @NamedQuery(name = "Orders.findByDesiredHour", query = "SELECT o FROM OrdersEntity o WHERE o.desiredHour = :desiredHour"),
+    @NamedQuery(name = "Orders.findByActualHour", query = "SELECT o FROM OrdersEntity o WHERE o.actualHour = :actualHour"),
+    @NamedQuery(name = "Orders.findByNameEmployee", query = "SELECT o FROM OrdersEntity o WHERE o.nameEmployee = :nameEmployee"),
+    @NamedQuery(name = "Orders.findBySatisfaction", query = "SELECT o FROM OrdersEntity o WHERE o.satisfaction = :satisfaction"),
+    @NamedQuery(name = "Orders.findByRemarks", query = "SELECT o FROM OrdersEntity o WHERE o.remarks = :remarks")})
+public class OrdersEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -72,14 +72,14 @@ public class Orders implements Serializable {
     @Column(name = "remarks")
     private String remarks;
 
-    public Orders() {
+    public OrdersEntity() {
     }
 
-    public Orders(Long id) {
+    public OrdersEntity(Long id) {
         this.id = id;
     }
 
-    public Orders(Long id, long idCustomersTable, String typePay, double orderAmoust, Date date, Date desiredHour, Date actualHour, String nameEmployee, int satisfaction, String remarks) {
+    public OrdersEntity(Long id, long idCustomersTable, String typePay, double orderAmoust, Date date, Date desiredHour, Date actualHour, String nameEmployee, int satisfaction, String remarks) {
         this.id = id;
         this.idCustomersTable = idCustomersTable;
         this.typePay = typePay;
@@ -182,10 +182,10 @@ public class Orders implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Orders)) {
+        if (!(object instanceof OrdersEntity)) {
             return false;
         }
-        Orders other = (Orders) object;
+        OrdersEntity other = (OrdersEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

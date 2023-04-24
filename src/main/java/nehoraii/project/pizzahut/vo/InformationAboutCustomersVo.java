@@ -1,2 +1,6 @@
-package nehoraii.project.pizzahut.vo;public class InformationAboutCustomers {
+package nehoraii.project.pizzahut.vo;
+
+import java.io.Serializable;
+
+public class InformationAboutCustomersVo implements Serializable {
 }

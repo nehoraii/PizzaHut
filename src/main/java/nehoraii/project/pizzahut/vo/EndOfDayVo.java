@@ -1,2 +1,6 @@
-package nehoraii.project.pizzahut.vo;public class EndOfDayVo {
+package nehoraii.project.pizzahut.vo;
+
+import java.io.Serializable;
+
+public class EndOfDayVo implements Serializable {
 }

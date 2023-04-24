@@ -23,13 +23,13 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "hours_table")
 @NamedQueries({
-    @NamedQuery(name = "HoursTable.findAll", query = "SELECT h FROM HoursTable h"),
-    @NamedQuery(name = "HoursTable.findById", query = "SELECT h FROM HoursTable h WHERE h.id = :id"),
-    @NamedQuery(name = "HoursTable.findByIdToEmployeesTable", query = "SELECT h FROM HoursTable h WHERE h.idToEmployeesTable = :idToEmployeesTable"),
-    @NamedQuery(name = "HoursTable.findByEntranceTime", query = "SELECT h FROM HoursTable h WHERE h.entranceTime = :entranceTime"),
-    @NamedQuery(name = "HoursTable.findByLeavingTime", query = "SELECT h FROM HoursTable h WHERE h.leavingTime = :leavingTime"),
-    @NamedQuery(name = "HoursTable.findByDate", query = "SELECT h FROM HoursTable h WHERE h.date = :date")})
-public class HoursTable implements Serializable {
+    @NamedQuery(name = "HoursTable.findAll", query = "SELECT h FROM HoursTableEntity h"),
+    @NamedQuery(name = "HoursTable.findById", query = "SELECT h FROM HoursTableEntity h WHERE h.id = :id"),
+    @NamedQuery(name = "HoursTable.findByIdToEmployeesTable", query = "SELECT h FROM HoursTableEntity h WHERE h.idToEmployeesTable = :idToEmployeesTable"),
+    @NamedQuery(name = "HoursTable.findByEntranceTime", query = "SELECT h FROM HoursTableEntity h WHERE h.entranceTime = :entranceTime"),
+    @NamedQuery(name = "HoursTable.findByLeavingTime", query = "SELECT h FROM HoursTableEntity h WHERE h.leavingTime = :leavingTime"),
+    @NamedQuery(name = "HoursTable.findByDate", query = "SELECT h FROM HoursTableEntity h WHERE h.date = :date")})
+public class HoursTableEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -52,14 +52,14 @@ public class HoursTable implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    public HoursTable() {
+    public HoursTableEntity() {
     }
 
-    public HoursTable(Long idToEmployeesTable) {
+    public HoursTableEntity(Long idToEmployeesTable) {
         this.idToEmployeesTable = idToEmployeesTable;
     }
 
-    public HoursTable(Long idToEmployeesTable, long id, Date entranceTime, Date leavingTime, Date date) {
+    public HoursTableEntity(Long idToEmployeesTable, long id, Date entranceTime, Date leavingTime, Date date) {
         this.idToEmployeesTable = idToEmployeesTable;
         this.id = id;
         this.entranceTime = entranceTime;
@@ -117,10 +117,10 @@ public class HoursTable implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof HoursTable)) {
+        if (!(object instanceof HoursTableEntity)) {
             return false;
         }
-        HoursTable other = (HoursTable) object;
+        HoursTableEntity other = (HoursTableEntity) object;
         if ((this.idToEmployeesTable == null && other.idToEmployeesTable != null) || (this.idToEmployeesTable != null && !this.idToEmployeesTable.equals(other.idToEmployeesTable))) {
             return false;
         }

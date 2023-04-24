@@ -22,14 +22,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "connection_pizza_and_pizza_toppings")
 @NamedQueries({
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findAll", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c"),
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findById", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c WHERE c.id = :id"),
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByIdInformationAboutTheItems", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c WHERE c.idInformationAboutTheItems = :idInformationAboutTheItems"),
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByIdInformationAboutPizzaToppings", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c WHERE c.idInformationAboutPizzaToppings = :idInformationAboutPizzaToppings"),
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByIdInformationAboutOrder", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c WHERE c.idInformationAboutOrder = :idInformationAboutOrder"),
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByRightPizzaTopping", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c WHERE c.rightPizzaTopping = :rightPizzaTopping"),
-    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByLeftPizzaTopping", query = "SELECT c FROM ConnectionPizzaAndPizzaToppings c WHERE c.leftPizzaTopping = :leftPizzaTopping")})
-public class ConnectionPizzaAndPizzaToppings implements Serializable {
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findAll", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c"),
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findById", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c WHERE c.id = :id"),
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByIdInformationAboutTheItems", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c WHERE c.idInformationAboutTheItems = :idInformationAboutTheItems"),
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByIdInformationAboutPizzaToppings", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c WHERE c.idInformationAboutPizzaToppings = :idInformationAboutPizzaToppings"),
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByIdInformationAboutOrder", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c WHERE c.idInformationAboutOrder = :idInformationAboutOrder"),
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByRightPizzaTopping", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c WHERE c.rightPizzaTopping = :rightPizzaTopping"),
+    @NamedQuery(name = "ConnectionPizzaAndPizzaToppings.findByLeftPizzaTopping", query = "SELECT c FROM ConnectionPizzaAndPizzaToppingsEntity c WHERE c.leftPizzaTopping = :leftPizzaTopping")})
+public class ConnectionPizzaAndPizzaToppingsEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,14 +53,14 @@ public class ConnectionPizzaAndPizzaToppings implements Serializable {
     @Column(name = "left_pizza_topping")
     private boolean leftPizzaTopping;
 
-    public ConnectionPizzaAndPizzaToppings() {
+    public ConnectionPizzaAndPizzaToppingsEntity() {
     }
 
-    public ConnectionPizzaAndPizzaToppings(Long id) {
+    public ConnectionPizzaAndPizzaToppingsEntity(Long id) {
         this.id = id;
     }
 
-    public ConnectionPizzaAndPizzaToppings(Long id, long idInformationAboutTheItems, long idInformationAboutPizzaToppings, long idInformationAboutOrder, boolean rightPizzaTopping, boolean leftPizzaTopping) {
+    public ConnectionPizzaAndPizzaToppingsEntity(Long id, long idInformationAboutTheItems, long idInformationAboutPizzaToppings, long idInformationAboutOrder, boolean rightPizzaTopping, boolean leftPizzaTopping) {
         this.id = id;
         this.idInformationAboutTheItems = idInformationAboutTheItems;
         this.idInformationAboutPizzaToppings = idInformationAboutPizzaToppings;
@@ -127,10 +127,10 @@ public class ConnectionPizzaAndPizzaToppings implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ConnectionPizzaAndPizzaToppings)) {
+        if (!(object instanceof ConnectionPizzaAndPizzaToppingsEntity)) {
             return false;
         }
-        ConnectionPizzaAndPizzaToppings other = (ConnectionPizzaAndPizzaToppings) object;
+        ConnectionPizzaAndPizzaToppingsEntity other = (ConnectionPizzaAndPizzaToppingsEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

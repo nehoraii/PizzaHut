@@ -25,15 +25,15 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "Information_about_the_dough")
 @NamedQueries({
-    @NamedQuery(name = "Informationaboutthedough.findAll", query = "SELECT i FROM InformationAboutTheDough i"),
-    @NamedQuery(name = "Informationaboutthedough.findById", query = "SELECT i FROM InformationAboutTheDough i WHERE i.id = :id"),
-    @NamedQuery(name = "Informationaboutthedough.findByCountDough", query = "SELECT i FROM InformationAboutTheDough i WHERE i.countDough = :countDough"),
-    @NamedQuery(name = "Informationaboutthedough.findByCodeOfDough", query = "SELECT i FROM InformationAboutTheDough i WHERE i.codeOfDough = :codeOfDough"),
-    @NamedQuery(name = "Informationaboutthedough.findByTimeForSwelledUp", query = "SELECT i FROM InformationAboutTheDough i WHERE i.timeForSwelledUp = :timeForSwelledUp"),
-    @NamedQuery(name = "Informationaboutthedough.findByCountPan", query = "SELECT i FROM InformationAboutTheDough i WHERE i.countPan = :countPan"),
-    @NamedQuery(name = "Informationaboutthedough.findByCountCoverPan", query = "SELECT i FROM InformationAboutTheDough i WHERE i.countCoverPan = :countCoverPan"),
-    @NamedQuery(name = "Informationaboutthedough.findByIdInformationAboutItems", query = "SELECT i FROM InformationAboutTheDough i WHERE i.idInformationAboutItems = :idInformationAboutItems")})
-public class InformationAboutTheDough implements Serializable {
+    @NamedQuery(name = "Informationaboutthedough.findAll", query = "SELECT i FROM InformationAboutTheDoughEntity i"),
+    @NamedQuery(name = "Informationaboutthedough.findById", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.id = :id"),
+    @NamedQuery(name = "Informationaboutthedough.findByCountDough", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.countDough = :countDough"),
+    @NamedQuery(name = "Informationaboutthedough.findByCodeOfDough", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.codeOfDough = :codeOfDough"),
+    @NamedQuery(name = "Informationaboutthedough.findByTimeForSwelledUp", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.timeForSwelledUp = :timeForSwelledUp"),
+    @NamedQuery(name = "Informationaboutthedough.findByCountPan", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.countPan = :countPan"),
+    @NamedQuery(name = "Informationaboutthedough.findByCountCoverPan", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.countCoverPan = :countCoverPan"),
+    @NamedQuery(name = "Informationaboutthedough.findByIdInformationAboutItems", query = "SELECT i FROM InformationAboutTheDoughEntity i WHERE i.idInformationAboutItems = :idInformationAboutItems")})
+public class InformationAboutTheDoughEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -61,14 +61,14 @@ public class InformationAboutTheDough implements Serializable {
     @Column(name = "id_information_about_items")
     private long idInformationAboutItems;
 
-    public InformationAboutTheDough() {
+    public InformationAboutTheDoughEntity() {
     }
 
-    public InformationAboutTheDough(Long id) {
+    public InformationAboutTheDoughEntity(Long id) {
         this.id = id;
     }
 
-    public InformationAboutTheDough(Long id, int countDough, String codeOfDough, Date timeForSwelledUp, int countPan, int countCoverPan, long idInformationAboutItems) {
+    public InformationAboutTheDoughEntity(Long id, int countDough, String codeOfDough, Date timeForSwelledUp, int countPan, int countCoverPan, long idInformationAboutItems) {
         this.id = id;
         this.countDough = countDough;
         this.codeOfDough = codeOfDough;
@@ -144,10 +144,10 @@ public class InformationAboutTheDough implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof InformationAboutTheDough)) {
+        if (!(object instanceof InformationAboutTheDoughEntity)) {
             return false;
         }
-        InformationAboutTheDough other = (InformationAboutTheDough) object;
+        InformationAboutTheDoughEntity other = (InformationAboutTheDoughEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

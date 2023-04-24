@@ -22,14 +22,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "information_about_pizza_toppings")
 @NamedQueries({
-    @NamedQuery(name = "InformationAboutPizzaToppings.findAll", query = "SELECT i FROM InformationAboutPizzaToppings i"),
-    @NamedQuery(name = "InformationAboutPizzaToppings.findById", query = "SELECT i FROM InformationAboutPizzaToppings i WHERE i.id = :id"),
-    @NamedQuery(name = "InformationAboutPizzaToppings.findByNameOfToppings", query = "SELECT i FROM InformationAboutPizzaToppings i WHERE i.nameOfToppings = :nameOfToppings"),
-    @NamedQuery(name = "InformationAboutPizzaToppings.findByAmountLessThanThree", query = "SELECT i FROM InformationAboutPizzaToppings i WHERE i.amountLessThanThree = :amountLessThanThree"),
-    @NamedQuery(name = "InformationAboutPizzaToppings.findByAmountMoreThanThree", query = "SELECT i FROM InformationAboutPizzaToppings i WHERE i.amountMoreThanThree = :amountMoreThanThree"),
-    @NamedQuery(name = "InformationAboutPizzaToppings.findByCalories", query = "SELECT i FROM InformationAboutPizzaToppings i WHERE i.calories = :calories"),
-    @NamedQuery(name = "InformationAboutPizzaToppings.findByPrice", query = "SELECT i FROM InformationAboutPizzaToppings i WHERE i.price = :price")})
-public class InformationAboutPizzaToppings implements Serializable {
+    @NamedQuery(name = "InformationAboutPizzaToppings.findAll", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i"),
+    @NamedQuery(name = "InformationAboutPizzaToppings.findById", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i WHERE i.id = :id"),
+    @NamedQuery(name = "InformationAboutPizzaToppings.findByNameOfToppings", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i WHERE i.nameOfToppings = :nameOfToppings"),
+    @NamedQuery(name = "InformationAboutPizzaToppings.findByAmountLessThanThree", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i WHERE i.amountLessThanThree = :amountLessThanThree"),
+    @NamedQuery(name = "InformationAboutPizzaToppings.findByAmountMoreThanThree", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i WHERE i.amountMoreThanThree = :amountMoreThanThree"),
+    @NamedQuery(name = "InformationAboutPizzaToppings.findByCalories", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i WHERE i.calories = :calories"),
+    @NamedQuery(name = "InformationAboutPizzaToppings.findByPrice", query = "SELECT i FROM InformationAboutPizzaToppingsEntity i WHERE i.price = :price")})
+public class InformationAboutPizzaToppingsEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -53,14 +53,14 @@ public class InformationAboutPizzaToppings implements Serializable {
     @Column(name = "price")
     private double price;
 
-    public InformationAboutPizzaToppings() {
+    public InformationAboutPizzaToppingsEntity() {
     }
 
-    public InformationAboutPizzaToppings(Long id) {
+    public InformationAboutPizzaToppingsEntity(Long id) {
         this.id = id;
     }
 
-    public InformationAboutPizzaToppings(Long id, String nameOfToppings, double amountLessThanThree, double amountMoreThanThree, double calories, double price) {
+    public InformationAboutPizzaToppingsEntity(Long id, String nameOfToppings, double amountLessThanThree, double amountMoreThanThree, double calories, double price) {
         this.id = id;
         this.nameOfToppings = nameOfToppings;
         this.amountLessThanThree = amountLessThanThree;
@@ -127,10 +127,10 @@ public class InformationAboutPizzaToppings implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof InformationAboutPizzaToppings)) {
+        if (!(object instanceof InformationAboutPizzaToppingsEntity)) {
             return false;
         }
-        InformationAboutPizzaToppings other = (InformationAboutPizzaToppings) object;
+        InformationAboutPizzaToppingsEntity other = (InformationAboutPizzaToppingsEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
