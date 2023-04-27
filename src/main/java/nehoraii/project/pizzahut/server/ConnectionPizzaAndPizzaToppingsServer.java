@@ -56,13 +56,17 @@ public class ConnectionPizzaAndPizzaToppingsServer {
         return (List<ConnectionPizzaAndPizzaToppingsEntity>) list;
 
     }
-    public ConnectionPizzaAndPizzaToppingsEntity getEntityByVo(ConnectionPizzaAndPizzaToppingsVo Vo){
+    public ConnectionPizzaAndPizzaToppingsEntity getEntityByVo(ConnectionPizzaAndPizzaToppingsVo Vo) throws IllegalAccessException {
         Long idOrder=Vo.getIdInformationAboutOrder();
         Long idItems=Vo.getIdInformationAboutTheItems();
         Long idOrderTopping=Vo.getIdInformationAboutPizzaToppings();
         boolean left=Vo.isLeftPizzaTopping();
         boolean right=Vo.isRightPizzaTopping();
-        return connectionPizzaAndPizzaToppingsRepository.getEntityByVo(idOrder,idOrderTopping,idItems,left,right);
+        ConnectionPizzaAndPizzaToppingsEntity entityByVo = connectionPizzaAndPizzaToppingsRepository.getEntityByVo(idOrder, idOrderTopping, idItems, left, right);
+        if(entityByVo==null){
+            throw new IllegalAccessException("not found");
+        }
+        return entityByVo;
     }
 
 }

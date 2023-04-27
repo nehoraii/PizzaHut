@@ -19,7 +19,12 @@ public class ConnectionPizzaAndPizzaToppingsController {
     }
     @DeleteMapping("/delete")
     private String delete(@RequestBody ConnectionPizzaAndPizzaToppingsVo Vo){
-        Long Id=connectionPizzaAndPizzaToppingsServer.getEntityByVo(Vo).getId();
+        Long Id= null;
+        try {
+            Id = connectionPizzaAndPizzaToppingsServer.getEntityByVo(Vo).getId();
+        } catch (IllegalAccessException e) {
+            return e.getMessage();
+        }
         connectionPizzaAndPizzaToppingsServer.delete(Id);
         return "The object by ID: " + Id + " deleted";
     }

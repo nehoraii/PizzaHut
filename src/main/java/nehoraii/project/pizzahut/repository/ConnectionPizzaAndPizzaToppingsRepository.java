@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface ConnectionPizzaAndPizzaToppingsRepository extends JpaRepository<ConnectionPizzaAndPizzaToppingsEntity,Long> {
     @Query("select e from ConnectionPizzaAndPizzaToppingsEntity e where e.idInformationAboutOrder=:id_order")
-    ConnectionPizzaAndPizzaToppingsEntity getByIdOrder(@Param("id")Long id);
-    @Query("select e from ConnectionPizzaAndPizzaToppingsEntity e WHERE  e.idInformationAboutOrder=:idOrder and e.idInformationAboutPizzaToppings=:idTopping and e.idInformationAboutTheItems=:iditems and e.leftPizzaTopping=:left and e.rightPizzaTopping=:right")
-    ConnectionPizzaAndPizzaToppingsEntity getEntityByVo(@Param("idOrder")Long idOrder,@Param("idTopping")Long IdTopping,@Param("iditems")Long iditems,@Param("left")boolean left,@Param("right")boolean right );
+    ConnectionPizzaAndPizzaToppingsEntity getByIdOrder(@Param("id_order")long id);
+    @Query(value = "select * from connection_pizza_and_pizza_toppings  WHERE  id_information_about_order=?1 and id_information_about_pizza_toppings=?2 and id_information_about_the_items=?3 and right_pizza_topping=?4 and right_pizza_topping=?5 limit 1",nativeQuery = true)
+    ConnectionPizzaAndPizzaToppingsEntity getEntityByVo(long idOrder,long IdTopping,long iditems,boolean left,boolean right);
 
 }
