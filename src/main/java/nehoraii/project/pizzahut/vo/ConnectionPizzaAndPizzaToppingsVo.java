@@ -1,6 +1,9 @@
 package nehoraii.project.pizzahut.vo;
 
+import lombok.Data;
+
 import java.io.Serializable;
+@Data
 
 public class ConnectionPizzaAndPizzaToppingsVo implements Serializable {
     private boolean leftPizzaTopping;

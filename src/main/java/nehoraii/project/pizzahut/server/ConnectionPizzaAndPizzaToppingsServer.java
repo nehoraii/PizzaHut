@@ -3,9 +3,12 @@ package nehoraii.project.pizzahut.server;
 import nehoraii.project.pizzahut.entity.ConnectionPizzaAndPizzaToppingsEntity;
 import nehoraii.project.pizzahut.repository.ConnectionPizzaAndPizzaToppingsRepository;
 import nehoraii.project.pizzahut.vo.ConnectionPizzaAndPizzaToppingsVo;
+import nehoraii.project.pizzahut.vo.EmployeesVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ public class ConnectionPizzaAndPizzaToppingsServer {
     public ConnectionPizzaAndPizzaToppingsServer(ConnectionPizzaAndPizzaToppingsRepository connectionPizzaAndPizzaToppingsRepository){
         this.connectionPizzaAndPizzaToppingsRepository=connectionPizzaAndPizzaToppingsRepository;
     }
+
     public Long save(ConnectionPizzaAndPizzaToppingsVo Vo){
         ConnectionPizzaAndPizzaToppingsEntity bean=new ConnectionPizzaAndPizzaToppingsEntity();
         BeanUtils.copyProperties(Vo,bean);
@@ -51,6 +55,14 @@ public class ConnectionPizzaAndPizzaToppingsServer {
         list=connectionPizzaAndPizzaToppingsRepository.getByIdOrder(orderId);
         return (List<ConnectionPizzaAndPizzaToppingsEntity>) list;
 
+    }
+    public ConnectionPizzaAndPizzaToppingsEntity getEntityByVo(ConnectionPizzaAndPizzaToppingsVo Vo){
+        Long idOrder=Vo.getIdInformationAboutOrder();
+        Long idItems=Vo.getIdInformationAboutTheItems();
+        Long idOrderTopping=Vo.getIdInformationAboutPizzaToppings();
+        boolean left=Vo.isLeftPizzaTopping();
+        boolean right=Vo.isRightPizzaTopping();
+        return connectionPizzaAndPizzaToppingsRepository.getEntityByVo(idOrder,idOrderTopping,idItems,left,right);
     }
 
 }
