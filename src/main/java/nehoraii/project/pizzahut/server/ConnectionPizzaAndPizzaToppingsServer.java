@@ -1,16 +1,13 @@
 package nehoraii.project.pizzahut.server;
 
+import nehoraii.project.pizzahut.classUpdate.ConnectionPizzaAndPizzaToppingsUpdate;
 import nehoraii.project.pizzahut.entity.ConnectionPizzaAndPizzaToppingsEntity;
 import nehoraii.project.pizzahut.repository.ConnectionPizzaAndPizzaToppingsRepository;
 import nehoraii.project.pizzahut.vo.ConnectionPizzaAndPizzaToppingsVo;
-import nehoraii.project.pizzahut.vo.EmployeesVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -32,18 +29,27 @@ public class ConnectionPizzaAndPizzaToppingsServer {
         connectionPizzaAndPizzaToppingsRepository.deleteById(id);
         return id;
     }
-    public void update(Long id, ConnectionPizzaAndPizzaToppingsVo Vo){
+    public void update(Long id, ConnectionPizzaAndPizzaToppingsUpdate update){
         ConnectionPizzaAndPizzaToppingsEntity bean=requireOne(id);
-        BeanUtils.copyProperties(Vo,bean);
+        BeanUtils.copyProperties(update,bean);
         connectionPizzaAndPizzaToppingsRepository.save(bean);
     }
-    public ConnectionPizzaAndPizzaToppingsVo getById(Long id){
+    public ConnectionPizzaAndPizzaToppingsVo getByIdForVo(Long id){
         ConnectionPizzaAndPizzaToppingsEntity original=requireOne(id);
         return toVO(original);
     }
-    private ConnectionPizzaAndPizzaToppingsVo toVO(ConnectionPizzaAndPizzaToppingsEntity orginal){
+    public ConnectionPizzaAndPizzaToppingsUpdate getByIdForUpdate(Long Id){
+        ConnectionPizzaAndPizzaToppingsEntity original=requireOne(Id);
+        return toUpdate(original);
+    }
+    private ConnectionPizzaAndPizzaToppingsVo toVO(ConnectionPizzaAndPizzaToppingsEntity original){
         ConnectionPizzaAndPizzaToppingsVo bean=new ConnectionPizzaAndPizzaToppingsVo();
-        BeanUtils.copyProperties(orginal,bean);
+        BeanUtils.copyProperties(original,bean);
+        return bean;
+    }
+    private ConnectionPizzaAndPizzaToppingsUpdate toUpdate(ConnectionPizzaAndPizzaToppingsEntity original){
+        ConnectionPizzaAndPizzaToppingsUpdate bean=new ConnectionPizzaAndPizzaToppingsUpdate();
+        BeanUtils.copyProperties(original,bean);
         return bean;
     }
     private ConnectionPizzaAndPizzaToppingsEntity requireOne(Long id){

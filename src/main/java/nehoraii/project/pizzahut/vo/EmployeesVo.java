@@ -13,6 +13,7 @@ public class EmployeesVo implements Serializable {
     private double payForHours;
     private String bankAccountNumber;
     private Date dateOfBirth;
+    private String codeEmployee;
 
 
 }
